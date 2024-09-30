@@ -1,0 +1,57 @@
+package com.jsp.sorting;
+
+import java.util.Arrays;
+
+public class QuickSort {
+
+	public static void main(String[] args) {
+		
+		int []arr= {30,50,60,40,10,20};
+		int len=arr.length-1;
+		System.out.println("Before QuickSort : ");
+		System.out.println(Arrays.toString(arr));
+		System.out.println("After QuickSort :");
+		Quicksort(arr,0,len);
+		System.out.println(Arrays.toString(arr));
+
+	}
+
+	public static void Quicksort(int[] arr, int low, int high) {
+		
+		int pi= partition(arr,low,high);
+		if(low<pi-1) {
+			Quicksort(arr,low,pi-1);
+			
+		}
+		if(pi<high) {
+			Quicksort(arr,pi,high);
+		}
+		
+	}
+
+	public static int partition(int[] arr, int low, int high) {
+		
+		int pivot=arr[(low+high)/2];
+		while(low<=high) {
+			while(arr[low]<pivot) {
+				low++;
+			}
+			while(arr[high]>pivot) {
+				high--;
+			}
+			
+			if(low<=high) {
+				int temp=arr[low];
+				arr[low]=arr[high];
+				arr[high]=temp;
+				
+				low++;
+				high--;
+			}
+		}
+		
+		return low;
+	}
+
+}
+//https://www.youtube.com/watch?v=l-YVzkQMLKg
