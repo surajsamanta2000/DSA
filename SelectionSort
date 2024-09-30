@@ -1,0 +1,37 @@
+package com.jsp.sorting;
+
+import java.util.Arrays;
+
+public class SelectionSort {
+
+	public static void main(String[] args) {
+		
+          int []a= {90,30,40,20,50};
+		
+		System.out.println("Before Sorting :");
+		
+		System.out.println(Arrays.toString(a));
+		System.out.println("-----------------");
+		System.out.println("After Sorting By using Selection Sort:");
+		sort(a);
+		System.out.println(Arrays.toString(a));
+
+	}
+
+	public static void sort(int[] a) {
+		for(int i=0;i<a.length;i++) {
+			int key=i;
+			for(int j=i+1;j<a.length;j++) {
+				if(a[j]<a[key]) {
+				  key=j;
+				}
+				
+			}
+			int temp=a[i];
+			a[i]=a[key];
+			a[key]=temp;
+		}
+		
+	}
+
+}
